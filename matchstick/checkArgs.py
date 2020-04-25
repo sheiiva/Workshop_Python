@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-#coding: utf-8
-
 class ArgumentManager():
 
     def checkArgs(self, argv) -> int:
@@ -15,7 +12,7 @@ class ArgumentManager():
 
             try:
                 int(value)
-            except:
+            except ValueError:
                 False
             else:
                 return True
@@ -30,7 +27,6 @@ class ArgumentManager():
             print("Wrong input value. Please retry with -h.")
             return 84
         return 0
-
 
     def needHelp(self, argv) -> bool:
 
