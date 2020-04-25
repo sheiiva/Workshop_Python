@@ -16,8 +16,8 @@ In case of bad input, you must ask for a number again.
 
 
 ##### OUTPUT
-If the user wins, the program must return 1.
-If the AI wins, it must return 2.
+If the user1 wins, the program must return 1.
+If the user2 wins, it must return 2.
 
 
 ## USAGE:
