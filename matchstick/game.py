@@ -9,7 +9,6 @@ class Game():
 
     def __init__(self):
         self._max = 0
-        self._line = 0
 
     def run(self) -> int:
 

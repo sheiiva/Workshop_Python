@@ -9,9 +9,9 @@ class ArgumentManager():
         Check for arguments validity.
         """
 
-        def isNum(value):
+        def isNum(value) -> bool:
 
-            """Return True if value is a digit."""
+            """Return True if value is a digit. Return False otherwise."""
 
             try:
                 int(value)
@@ -20,19 +20,19 @@ class ArgumentManager():
             else:
                 return True
 
-        if len(argv) != 3:
+        if len(argv) != 2:
             print("Wrong number of arguments. Please retry with -h.")
             return 84
-        elif not isNum(argv[1]) or not isNum(argv[2]):
+        elif not isNum(argv[1]):
             print("Arguments must be integers. Please retry with -h.")
             return 84
-        elif int(argv[1]) <= 0 or not (int(argv[2]) > 0 and int(argv[2]) <= 100):
+        elif int(argv[1]) <= 0 or int(argv[1]) >= 30:
             print("Wrong input value. Please retry with -h.")
             return 84
         return 0
 
 
-    def needHelp(self, argv):
+    def needHelp(self, argv) -> bool:
 
         """
         Check if the user is asking for help.
