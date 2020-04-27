@@ -1,3 +1,13 @@
+######################################################
+#                                                    #
+#                   Workshop Python3                 #
+#                      ---------                     #
+#               Corentin COUTRET-ROZET               #
+#                                                    #
+# Github: https://github.com/sheiiva/Workshop_Python #
+######################################################
+
+
 class ArgumentManager():
 
     def checkArgs(self, argv) -> int:
