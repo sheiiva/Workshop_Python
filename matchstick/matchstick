@@ -13,7 +13,7 @@
 
 from sys import argv
 
-from usage import help
+from usage import Help
 from checkArgs import ArgumentManager
 from game import Game
 
@@ -23,11 +23,11 @@ def main():
     argsManager = ArgumentManager()
 
     if argsManager.needHelp(argv):
-        help()
+        Help()
     elif argsManager.checkArgs(argv) == 84:
         exit(84)
     else:
-        exit(Game().run())
+        Game().run()
 
 
 if __name__ == "__main__":

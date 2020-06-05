@@ -10,15 +10,27 @@
 
 class ArgumentManager():
 
-    def checkArgs(self, argv) -> int:
-
+    def checkArgs(self, argv: list) -> int:
         """
         Check for arguments validity.
+
+        Args:
+            argv (list): Input arguments.
+
+        Returns:
+            int: 0 if success. 84 otherwise.
         """
 
         def isNum(value) -> bool:
+            """
+            Check values type.
 
-            """Return True if value is a digit. Return False otherwise."""
+            Args:
+                value (any): Value to be checked.
+
+            Returns:
+                bool: True if value is an int. False otherwise.
+            """
 
             try:
                 int(value)
@@ -38,10 +50,15 @@ class ArgumentManager():
             return 84
         return 0
 
-    def needHelp(self, argv) -> bool:
-
+    def needHelp(self, argv: list) -> bool:
         """
-        Check if the user is asking for help.
+        Check if user is asking for help.
+
+        Args:
+            argv (list): Input arguments.
+
+        Returns:
+            bool: True if help flag. Flase otherwise.
         """
 
         if "-h" in argv or "--help" in argv:

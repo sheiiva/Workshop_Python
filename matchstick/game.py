@@ -10,6 +10,9 @@
 
 from sys import argv
 
+PLAYER1 = 1
+PLAYER2 = 2
+
 
 class Game():
 
@@ -21,13 +24,28 @@ class Game():
         self._max = int(argv[1])
         self._sticks = 30
 
-    def getSticks(self, player) -> int:
-
+    def getSticks(self, player: int) -> int:
         """
         Ask to player for how much stick.s they want to remove.
+
+        Args:
+            player (int): Player's number.
+
+        Returns:
+            int: Number of sticks removed.
         """
 
-        def isValidInput(sticks):
+        def isValidInput(sticks: int) -> bool:
+            """
+            Check for input validity.
+
+            Args:
+                sticks (int): Input sticks number to be checked.
+
+            Returns:
+                bool: Ture if valid. False otherwise.
+            """
+
             if sticks < 1 or sticks > self._max:
                 print("Enter a number between 1 and {}.".format(self._max))
                 return False
@@ -46,16 +64,18 @@ class Game():
                 sticks = self.getSticks(player)
         return sticks
 
-    def play(self, player) -> None:
-
+    def play(self, player: int) -> None:
         """
         Player's turn.
+
+        Args:
+            player (int): Player's number.
         """
 
         self._sticks -= self.getSticks(player)
         if self._sticks <= 0:
             print("Player {} lost the game!".format(player))
-            exit(0)
+            exit(player)
 
     def run(self) -> None:
 
@@ -67,9 +87,8 @@ class Game():
             print(self._sticks * '|', end="\n\n")
 
         print("WELCOME ON MATCHSTICK GAME!\n")
-        printBoard()
         while True:
-            self.play(1)
             printBoard()
-            self.play(2)
+            self.play(PLAYER1)
             printBoard()
+            self.play(PLAYER2)
