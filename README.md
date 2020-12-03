@@ -1,11 +1,17 @@
-Workshop Python
+Workshops Python
 ===
 
-This repository contains a workshop python. Its mains goal is to understand basic usage of [python3](https://docs.python.org/3/index.html) (*such as script/file usage, object-oriented paradigm, classes (methods and attributes usage..), etc..*)
+This repository contains 4 workshops on python. Its mains goal is to understand usage of [python3](https://docs.python.org/3/index.html) from the bases, to the Object-Oriented Programming paradigm.
 
-In this repository:
-* A documentation about [How to start with Python](https://github.com/sheiiva/Workshop_Python/blob/master/documentation.pdf)
-* [Matchstick game code](https://github.com/sheiiva/Workshop_Python/tree/master/matchstick) (used during the Workshop)
+## Program:
+* Session no.1 : Python basics (the goal is to understand the bases of python, acquire some vocabulary and key to develop your first python script)
+* Session no.2 : Declarative and Imperative python coding style (the goal is to understand the construction of a python program and different coding style)
+* Session no.3 : Object-Oriented Programming (the goal here is to understand the OOP paradigm and to get the main keys to create an OOP python code)
+* Session no.4 : Tricks and tools (the goal of the last workshop is to get some tips about python3 and conda environment usage)
 
+## PREREQUISITES:
+* Python3
+* Pip
+* Miniconda3
 
 Author [**Corentin COUTRET-ROZET**](https://github.com/sheiiva)
