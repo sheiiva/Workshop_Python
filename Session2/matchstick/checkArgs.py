@@ -48,6 +48,7 @@ def checkArgs(argv: list) -> int:
         return 84
     return 0
 
+
 def needHelp(argv: list) -> bool:
     """
     Check if user is asking for help.

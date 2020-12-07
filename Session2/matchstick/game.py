@@ -13,9 +13,8 @@ from sys import argv
 PLAYER1 = 1
 PLAYER2 = 2
 
-
 MAX = int(argv[1])
-STICKS = 30
+
 
 def getSticks(player: int) -> int:
     """
@@ -57,7 +56,8 @@ def getSticks(player: int) -> int:
             sticks = getSticks(player)
     return sticks
 
-def play(player: int) -> None:
+
+def play(player: int, sticks: int) -> int:
     """
     Player's turn.
 
@@ -65,10 +65,12 @@ def play(player: int) -> None:
         player (int): Player's number.
     """
 
-    STICKS -= getSticks(player)
-    if STICKS <= 0:
+    n_sticks = sticks - getSticks(player)
+    if n_sticks <= 0:
         print("Player {} lost the game!".format(player))
         exit(player)
+    return n_sticks
+
 
 def run() -> None:
 
@@ -76,12 +78,14 @@ def run() -> None:
     Run the main loop of the game.
     """
 
-    def printBoard() -> None:
-        print(STICKS * '|', end="\n\n")
+    sticks = 30
+
+    def printBoard(sticks: int) -> None:
+        print(sticks * '|', end="\n\n")
 
     print("WELCOME ON MATCHSTICK GAME!\n")
     while True:
-        printBoard()
-        play(PLAYER1)
-        printBoard()
-        play(PLAYER2)
+        printBoard(sticks)
+        sticks = play(PLAYER1, sticks)
+        printBoard(sticks)
+        sticks = play(PLAYER2, sticks)
