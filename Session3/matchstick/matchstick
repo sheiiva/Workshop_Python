@@ -13,9 +13,9 @@
 
 from sys import argv
 
-from usage import Help
-from checkArgs import ArgumentManager
-from game import Game
+from Help import Help
+from ArgumentManager import ArgumentManager
+from Game import Game
 
 
 def main():
