@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+#coding: utf-8
+
+######################################################
+#                                                    #
+#                Workshop Python3 (3/4)              #
+#                      ---------                     #
+#                Corentin COUTRET-ROZET              #
+#                                                    #
+# Github: https://github.com/sheiiva/Workshop_Python #
+######################################################
+
+
+from sys import argv
+
+from usage import Help
+from checkArgs import ArgumentManager
+from game import Game
+
+
+def main():
+
+    argsManager = ArgumentManager()
+
+    if argsManager.needHelp(argv):
+        Help()
+    elif argsManager.checkArgs(argv) == 84:
+        exit(84)
+    else:
+        Game().run()
+
+
+if __name__ == "__main__":
+    main()
