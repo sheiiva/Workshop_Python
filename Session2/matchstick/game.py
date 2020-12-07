@@ -1,6 +1,6 @@
 ######################################################
 #                                                    #
-#                Workshop Python3 (3/4)              #
+#                Workshop Python3 (2/4)              #
 #                      ---------                     #
 #                Corentin COUTRET-ROZET              #
 #                                                    #
@@ -14,81 +14,74 @@ PLAYER1 = 1
 PLAYER2 = 2
 
 
-class Game():
+MAX = int(argv[1])
+STICKS = 30
 
+def getSticks(player: int) -> int:
     """
-    Main class that allows computation and output printing.
+    Ask to player for how much stick.s they want to remove.
+
+    Args:
+        player (int): Player's number.
+
+    Returns:
+        int: Number of sticks removed.
     """
 
-    def __init__(self):
-        self._max = int(argv[1])
-        self._sticks = 30
-
-    def getSticks(self, player: int) -> int:
+    def isValidInput(sticks: int) -> bool:
         """
-        Ask to player for how much stick.s they want to remove.
+        Check for input validity.
 
         Args:
-            player (int): Player's number.
+            sticks (int): Input sticks number to be checked.
 
         Returns:
-            int: Number of sticks removed.
+            bool: Ture if valid. False otherwise.
         """
 
-        def isValidInput(sticks: int) -> bool:
-            """
-            Check for input validity.
+        if sticks < 1 or sticks > MAX:
+            print("Enter a number between 1 and {}.".format(MAX))
+            return False
+        return True
 
-            Args:
-                sticks (int): Input sticks number to be checked.
+    try:
+        sticks = int(input("Player {}: ".format(player)))
+    except ValueError:  # If input cannot be cast to an int
+        print("Wrong input. Please enter an integer.")
+        sticks = getSticks(player)
+    except KeyboardInterrupt:  # Quit the game if get a Ctrl+'C'
+        print("\nexit")
+        exit(0)
+    else:
+        if not isValidInput(sticks):
+            sticks = getSticks(player)
+    return sticks
 
-            Returns:
-                bool: Ture if valid. False otherwise.
-            """
+def play(player: int) -> None:
+    """
+    Player's turn.
 
-            if sticks < 1 or sticks > self._max:
-                print("Enter a number between 1 and {}.".format(self._max))
-                return False
-            return True
+    Args:
+        player (int): Player's number.
+    """
 
-        try:
-            sticks = int(input("Player {}: ".format(player)))
-        except ValueError:  # If input cannot be cast to an int
-            print("Wrong input. Please enter an integer.")
-            sticks = self.getSticks(player)
-        except KeyboardInterrupt:  # Quit the game if get a Ctrl+'C'
-            print("\nexit")
-            exit(0)
-        else:
-            if not isValidInput(sticks):
-                sticks = self.getSticks(player)
-        return sticks
+    STICKS -= getSticks(player)
+    if STICKS <= 0:
+        print("Player {} lost the game!".format(player))
+        exit(player)
 
-    def play(self, player: int) -> None:
-        """
-        Player's turn.
+def run() -> None:
 
-        Args:
-            player (int): Player's number.
-        """
+    """
+    Run the main loop of the game.
+    """
 
-        self._sticks -= self.getSticks(player)
-        if self._sticks <= 0:
-            print("Player {} lost the game!".format(player))
-            exit(player)
+    def printBoard() -> None:
+        print(STICKS * '|', end="\n\n")
 
-    def run(self) -> None:
-
-        """
-        Run the main loop of the game.
-        """
-
-        def printBoard() -> None:
-            print(self._sticks * '|', end="\n\n")
-
-        print("WELCOME ON MATCHSTICK GAME!\n")
-        while True:
-            printBoard()
-            self.play(PLAYER1)
-            printBoard()
-            self.play(PLAYER2)
+    print("WELCOME ON MATCHSTICK GAME!\n")
+    while True:
+        printBoard()
+        play(PLAYER1)
+        printBoard()
+        play(PLAYER2)

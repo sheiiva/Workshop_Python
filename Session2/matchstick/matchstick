@@ -3,7 +3,7 @@
 
 ######################################################
 #                                                    #
-#                Workshop Python3 (3/4)              #
+#                Workshop Python3 (2/4)              #
 #                      ---------                     #
 #                Corentin COUTRET-ROZET              #
 #                                                    #
@@ -13,21 +13,19 @@
 
 from sys import argv
 
-from usage import Help
-from checkArgs import ArgumentManager
-from game import Game
+from usage import usage
+from checkArgs import needHelp, checkArgs
+from game import run
 
 
 def main():
 
-    argsManager = ArgumentManager()
-
-    if argsManager.needHelp(argv):
-        Help()
-    elif argsManager.checkArgs(argv) == 84:
+    if needHelp(argv):
+        usage()
+    elif checkArgs(argv) == 84:
         exit(84)
     else:
-        Game().run()
+        run()
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 ######################################################
 #                                                    #
-#                Workshop Python3 (3/4)              #
+#                Workshop Python3 (2/4)              #
 #                      ---------                     #
 #                Corentin COUTRET-ROZET              #
 #                                                    #
