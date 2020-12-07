@@ -5,7 +5,7 @@ This repository contains a workshop python. Its mains goal is to understand the 
 
 ## Repository:
 * A documentation about [How to start with Python](https://github.com/sheiiva/Workshop_Python/blob/master/documentation.pdf)
-* [Matchstick game code](https://github.com/sheiiva/Workshop_Python/tree/master/matchstick) (used during the Workshop)
+* [Matchstick game code](https://github.com/sheiiva/Workshop_Python/tree/master/Session3/matchstick) (used during the Workshop)
 
 
 Author [**Corentin COUTRET-ROZET**](https://github.com/sheiiva)
