@@ -25,7 +25,7 @@ def main():
     elif checkArgs(argv) == 84:
         exit(84)
     else:
-        run()
+        run(int(argv[1]))
 
 
 if __name__ == "__main__":
